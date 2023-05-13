@@ -21,23 +21,23 @@ int main() {
     for (int i = 0; i < NUM_PROCESSES; i++) {
         struct process p = processes[i];
 
-        // calculate waiting time for current process
+        
         p.waiting_time = current_time - p.arrival_time;
         if (p.waiting_time < 0) {
             p.waiting_time = 0;
         }
 
-        // calculate turnaround time for current process
+        
         p.turnaround_time = p.waiting_time + p.burst_time;
 
-        // update total waiting time and total turnaround time
+        
         total_waiting_time += p.waiting_time;
         total_turnaround_time += p.turnaround_time;
 
-        // update current time
+        
         current_time += p.burst_time;
 
-        // print process details
+        
         printf("P%d\t%d\t\t%d\t\t%d\t\t%d\n", p.id, p.arrival_time, p.burst_time, p.waiting_time, p.turnaround_time);
     }
 
